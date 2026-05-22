@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe Menu</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            scroll-behavior: smooth;
+        }
+
+
+        .section {
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .section:nth-child(1) {
+            background: #3d1e18;
+        }
+
+        .section:nth-child(2) {
+            background: #3d1e18;
+        }
+
+        .section:nth-child(3) {
+            background: #3d1e18;
+        }
+
+        h1 {
+            text-align: center;
+            color: aliceblue;
+        }
+
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+
+        .card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+
+
+        .name {
+            padding: 10px;
+            font-weight: bold;
+        }
+
+
+        .price {
+            color: #6b4f4f;
+            margin-bottom: 10px;
+        }
+
+        .cart {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            width: min(100% - 40px, 320px);
+            background: #fffaf5;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            border: 1px solid #e0d4c8;
+        }
+
+        .cart h2 {
+            margin-top: 0;
+            color: #3d1e18;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #3d1e18;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .cart ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .cart li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #c0b2a3;
+            color: #5a3d31;
+            font-size: 1.05rem;
+        }
+
+        .cart .quantity {
+            font-weight: bold;
+            color: #f3961c;
+            margin-right: 8px;
+            font-size: 0.95rem;
+        }
+
+        .cart h3 {
+            color: #c0392b;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .cart button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #3d1e18;
+            color: white;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .cart button:hover {
+            background: #f3961c;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .cart form button {
+            background: #c0392b;
+            margin-bottom: 0;
+        }
+
+        .cart form button:hover {
+            background: #a93226;
+        }
+        
+        .cart::-webkit-scrollbar {
+            width: 8px;
+        }
+        .cart::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 10px;
+        }
+        .cart::-webkit-scrollbar-thumb {
+            background: #c0b2a3; 
+            border-radius: 10px;
+        }
+        .cart::-webkit-scrollbar-thumb:hover {
+            background: #3d1e18; 
+        }
+
+        .card {
+            cursor: pointer;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 1200px;
+            justify-content: space-between;
+        }
+    </style>
+    <link rel="stylesheet" href="styles/style-home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body style="background-color: #3d1e18; ">
+
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <h2 class="logo-text">Coffee</h2>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="Log in - Sign Up.html" class="nav-link">Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="Log in - Sign Up.html" class="nav-link">Sign Up</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="index-home.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index-about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="menu.html" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index-testi.html" class="nav-link">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index-gallary.html" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cont.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index-booking.html" class="nav-link">Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index-cacher.html" class="nav-link">Cashing</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="section container">
+        <h1 style="margin-top: 6rem;"> Hot Drinks</h1>
+        <div class="menu-grid">
+
+            <div class="card" onclick="addItem('Espresso',20)">
+                <img src="assets/espresso.jpeg">
+                <div class="name">Espresso</div>
+                <div class="price">20 EGP</div>
+            </div>
+
+            <div class="card" onclick="addItem('Cappuccino',30)">
+                <img src="assets/cappuccino.jpeg">
+                <div class="name">Cappuccino</div>
+                <div class="price">30 EGP</div>
+            </div>
+
+            <div class="card" onclick="addItem('Latte',35)">
+                <img src="assets/latte.jpeg">
+                <div class="name">Latte</div>
+                <div class="price">35 EGP</div>
+            </div>
+
+            <div class="card" onclick="addItem('Americano',25)">
+                <img src="assets/americano.jpeg">
+                <div class="name">Americano</div>
+                <div class="price">25 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Tea',15)">
+                <img src="assets/tea.jpeg">
+                <div class="name">Tea</div>
+                <div class="price">15 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Vanilla Latt',40)">
+                <img src="assets/vanillaLatte.jpeg">
+                <div class="name">Vanilla Latte</div>
+                <div class="price">40 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Caramel Latte',35)">
+                <img src="assets/caramelLatte.jpeg">
+                <div class="name">Caramel Latte</div>
+                <div class="price">35 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Coffee',20)">
+                <img src="assets/coffee.jpeg">
+                <div class="name">Coffee</div>
+                <div class="price">20 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Mocha',30)">
+                <img src="assets/mocha.jpeg">
+                <div class="name">Mocha</div>
+                <div class="price">30 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('White Mocha',30)">
+                <img src="assets/whiteMocha.jpeg">
+                <div class="name">White Mocha</div>
+                <div class="price">30 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Flat White',30)">
+                <img src="assets/Flat White.jpeg">
+                <div class="name">Flat White</div>
+                <div class="price">30 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Turkish Coffee',25)">
+                <img src="assets/Turkish Coffee.jpeg">
+                <div class="name">Turkish Coffee</div>
+                <div class="price">25 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('French Coffee',30)">
+                <img src="assets/French Coffee.jpeg">
+                <div class="name">French Coffee</div>
+                <div class="price">30 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Hazelnut Coffee',40)">
+                <img src="assets/Hazelnut Coffee.jpeg">
+                <div class="name">Hazelnut Coffee</div>
+                <div class="price">40 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Irish Coffee',40)">
+                <img src="assets/Irish Coffee.jpeg">
+                <div class="name">Irish Coffee</div>
+                <div class="price">40 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Hot Chocolate',150)">
+                <img src="assets/Hot Chocolate.jpeg">
+                <div class="name">Hot Chocolate</div>
+                <div class="price">150 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('White Hot Chocolate',150)">
+                <img src="assets/White Hot Chocolate.jpeg">
+                <div class="name">White Hot Chocolate</div>
+                <div class="price">150 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Milk Tea',20)">
+                <img src="assets/Milk Tea.jpeg">
+                <div class="name">Milk Tea</div>
+                <div class="price">20 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Chai Latte',40)">
+                <img src="assets/Chai Latte.jpeg">
+                <div class="name">Chai Latte</div>
+                <div class="price">40 EGP</div>
+            </div>
+            <div class="card" onclick="addItem('Cinnamon Milk',40)">
+                <img src="assets/Cinnamon Milk.jpeg">
+                <div class="name">Cinnamon Milk</div>
+                <div class="price">40 EGP</div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="section container">
+        <h1> Cold Drinks</h1>
+
+        <div class="menu-grid">
+
+
+            <div class="card" onclick="addItem('Iced Coffee',40)">
+                <img src="assets/Iced Coffee.jpeg">
+                <div class="name">Iced Coffee</div>
+                <div class="price">40 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Iced Latte',45)">
+                <img src="assets/Iced Latte.jpeg">
+                <div class="name">Iced Latte</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Frappuccino',50)">
+                <img src="assets/Frappuccino.jpeg">
+                <div class="name">Frappuccino</div>
+                <div class="price">50 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Iced Mocha',50)">
+                <img src="assets/Iced Mocha.jpeg">
+                <div class="name">Iced Mocha</div>
+                <div class="price">50 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Cold Brew',45)">
+                <img src="assets/Cold Brew.jpeg">
+                <div class="name">Cold Brew</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Fresh Orange Juice',30)">
+                <img src="assets/Fresh Orange Juice.jpeg">
+                <div class="name">Fresh Orange Juice</div>
+                <div class="price">30 EGP</div>
+            </div>
+
+            <!-- 7 -->
+            <div class="card" onclick="addItem('Mango Juice',35)">
+                <img src="assets/Mango Juice.jpeg">
+                <div class="name">Mango Juice</div>
+                <div class="price">35 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Strawberry Juice',35)">
+                <img src="assets/Strawberry Juice.jpeg">
+                <div class="name">Strawberry Juice</div>
+                <div class="price">35 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Guava Juice',30)">
+                <img src="assets/Guava Juice.jpeg">
+                <div class="name">Guava Juice</div>
+                <div class="price">30 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Lemon Mint',25)">
+                <img src="assets/Lemon Mint.jpeg">
+                <div class="name">Lemon Mint</div>
+                <div class="price">25 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Mixed Smoothie',45)">
+                <img src="assets/Mixed Smoothie.jpeg">
+                <div class="name">Mixed Smoothie</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Banana Smoothie',40)">
+                <img src="assets/Banana Smoothie.jpeg">
+                <div class="name">Banana Smoothie</div>
+                <div class="price">40 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Chocolate Milkshake',45)">
+                <img src="assets/Chocolate Milkshake.jpeg">
+                <div class="name">Chocolate Milkshake</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Vanilla Milkshake',45)">
+                <img src="assets/Vanilla Milkshake.jpeg">
+                <div class="name">Vanilla Milkshake</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Strawberry Milkshake',45)">
+                <img src="assets/Strawberry Milkshake.jpeg">
+                <div class="name">Strawberry Milkshake</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Iced Tea',30)">
+                <img src="assets/Iced Tea.jpeg">
+                <div class="name">Iced Tea</div>
+                <div class="price">30 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Peach Iced Tea',35)">
+                <img src="assets/Peach Iced Tea.jpeg">
+                <div class="name">Peach Iced Tea</div>
+                <div class="price">35 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Cola',20)">
+                <img src="assets/Cola.jpeg">
+                <div class="name">Cola</div>
+                <div class="price">20 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Sprite',20)">
+                <img src="assets/Sprite.jpeg">
+                <div class="name">Sprite</div>
+                <div class="price">20 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Fanta',20)">
+                <img src="assets/Fanta.jpeg">
+                <div class="name">Fanta</div>
+                <div class="price">20 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Energy Drink',35)">
+                <img src="assets/Energy Drink.jpeg">
+                <div class="name">Energy Drink</div>
+                <div class="price">35 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Iced Chocolate',45)">
+                <img src="assets/Iced Chocolate.jpeg">
+                <div class="name">Iced Chocolate</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Oreo Milkshake',50)">
+                <img src="assets/Oreo Milkshake.jpeg">
+                <div class="name">Oreo Milkshake</div>
+                <div class="price">50 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Lotus Milkshake',50)">
+                <img src="assets/Lotus Milkshake.jpeg">
+                <div class="name">Lotus Milkshake</div>
+                <div class="price">50 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Iced Caramel',45)">
+                <img src="assets/Iced Caramel.jpeg">
+                <div class="name">Iced Caramel</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Blue Lagoon',40)">
+                <img src="assets/Blue Lagoon.jpeg">
+                <div class="name">Blue Lagoon</div>
+                <div class="price">40 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Mineral Water',10)">
+                <img src="assets/Mineral Water.jpeg">
+                <div class="name">Mineral Water</div>
+                <div class="price">10 EGP</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section container">
+        <h1> Desserts</h1>
+
+        <div class="menu-grid">
+
+
+            <div class="card" onclick="addItem('Chocolate Cake',45)">
+                <img src="assets/Chocolate Cake.jpeg">
+                <div class="name">Chocolate Cake</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Cheesecake',50)">
+                <img src="assets/Cheesecake.jpeg">
+                <div class="name">Cheesecake</div>
+                <div class="price">50 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Red Velvet Cake',55)">
+                <img src="assets/Red Velvet Cake.jpeg">
+                <div class="name">Red Velvet Cake</div>
+                <div class="price">55 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Carrot Cake',45)">
+                <img src="assets/Carrot Cake.jpeg">
+                <div class="name">Carrot Cake</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Cupcake',25)">
+                <img src="assets/Cupcake.jpeg">
+                <div class="name">Cupcake</div>
+                <div class="price">25 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Brownies',30)">
+                <img src="assets/Brownies.jpeg">
+                <div class="name">Brownies</div>
+                <div class="price">30 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Donuts',25)">
+                <img src="assets/Donuts.jpeg">
+                <div class="name">Donuts</div>
+                <div class="price">25 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Croissant',20)">
+                <img src="assets/Croissant.jpeg">
+                <div class="name">Croissant</div>
+                <div class="price">20 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Waffles',40)">
+                <img src="assets/Waffles.jpeg">
+                <div class="name">Waffles</div>
+                <div class="price">40 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Pancakes',35)">
+                <img src="assets/Pancakes.jpeg">
+                <div class="name">Pancakes</div>
+                <div class="price">35 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Ice Cream',30)">
+                <img src="assets/Ice Cream.jpeg">
+                <div class="name">Ice Cream</div>
+                <div class="price">30 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Chocolate Mousse',40)">
+                <img src="assets/Chocolate Mousse.jpeg">
+                <div class="name">Chocolate Mousse</div>
+                <div class="price">40 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Tiramisu',50)">
+                <img src="assets/Tiramisu.jpeg">
+                <div class="name">Tiramisu</div>
+                <div class="price">50 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Apple Pie',35)">
+                <img src="assets/Apple Pie.jpeg">
+                <div class="name">Apple Pie</div>
+                <div class="price">35 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Cookies',20)">
+                <img src="assets/Cookies.jpeg">
+                <div class="name">Cookies</div>
+                <div class="price">20 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Eclair',30)">
+                <img src="assets/Eclair.jpeg">
+                <div class="name">Eclair</div>
+                <div class="price">30 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Baklava',40)">
+                <img src="assets/Baklava.jpeg">
+                <div class="name">Baklava</div>
+                <div class="price">40 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Basbousa',25)">
+                <img src="assets/Basbousa.jpeg">
+                <div class="name">Basbousa</div>
+                <div class="price">25 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Kunafa',45)">
+                <img src="assets/Kunafa.jpeg">
+                <div class="name">Kunafa</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Rice Pudding',25)">
+                <img src="assets/Rice Pudding.jpeg">
+                <div class="name">Rice Pudding</div>
+                <div class="price">25 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Vanilla Pudding',25)">
+                <img src="assets/Vanilla Pudding.jpeg">
+                <div class="name">Vanilla Pudding</div>
+                <div class="price">25 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Crepe',40)">
+                <img src="assets/Crepe.jpeg">
+                <div class="name">Crepe</div>
+                <div class="price">40 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Churros',35)">
+                <img src="assets/Churros.jpeg">
+                <div class="name">Churros</div>
+                <div class="price">35 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Macarons',50)">
+                <img src="assets/Macarons.jpeg">
+                <div class="name">Macarons</div>
+                <div class="price">50 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Cinnamon Roll',35)">
+                <img src="assets/Cinnamon Roll.jpeg">
+                <div class="name">Cinnamon Roll</div>
+                <div class="price">35 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Fruit Salad',30)">
+                <img src="assets/Fruit Salad.jpeg">
+                <div class="name">Fruit Salad</div>
+                <div class="price">30 EGP</div>
+            </div>
+
+
+            <div class="card" onclick="addItem('Ice Cream Sundae',45)">
+                <img src="assets/Ice Cream Sundae.jpeg">
+                <div class="name">Ice Cream Sundae</div>
+                <div class="price">45 EGP</div>
+            </div>
+
+        </div>
+    </div>
+    <div class="cart">
+        <h2>🛒 Cart</h2>
+        <ul id="cartList"></ul>
+        <h3 id="total">Total: 0 EGP</h3>
+        <button onclick="clearCart()">Clear Cart</button>
+        <form action="index-cacher.html">
+            <button type="submit">
+                Checkout
+            </button>
+        </form>
+
+    </div>
+    <script>
+        let total = 0;
+        let cartItems = {};
+        let cartList = document.getElementById("cartList");
+        let totalDisplay = document.getElementById("total");
+
+        function addItem(name, price) {
+            if (cartItems[name]) {
+                cartItems[name].quantity += 1;
+                let li = document.getElementById("cart-item-" + name.replace(/\s+/g, '-'));
+                li.innerHTML = `<span><span class="quantity">${cartItems[name].quantity}x</span> ${name}</span> <strong>${cartItems[name].quantity * price} EGP</strong>`;
+            } else {
+                cartItems[name] = { price: price, quantity: 1 };
+                let li = document.createElement("li");
+                li.id = "cart-item-" + name.replace(/\s+/g, '-');
+                li.innerHTML = `<span><span class="quantity">1x</span> ${name}</span> <strong>${price} EGP</strong>`;
+                cartList.appendChild(li);
+            }
+
+            total += price;
+            totalDisplay.textContent = "Total: " + total + " EGP";
+        }
+
+        function clearCart() {
+            cartList.innerHTML = "";
+            total = 0;
+            cartItems = {};
+            totalDisplay.textContent = "Total: 0 EGP";
+        }
+    </script>
+    <script src="js/script-home.js"></script>
+</body>
+
+</html>

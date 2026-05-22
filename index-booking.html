@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Table - Café</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/style-booking.css">
+  <link rel="stylesheet" href="styles/style-home.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar section-content">
+      <a href="index-home.html" class="nav-logo">
+        <h2 class="logo-text">Coffee</h2>
+      </a>
+      <button id="menu-close-button" class="fas fa-times"></button>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="Log in - Sign Up.html" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item">
+          <a href="Log in - Sign Up.html" class="nav-link">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a href="index-home.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="index-about.html" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="menu.html" class="nav-link">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a href="index-testi.html" class="nav-link">Testimonials</a>
+        </li>
+        <li class="nav-item">
+          <a href="index-gallary.html" class="nav-link">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a href="cont.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="index-booking.html" class="nav-link">Booking</a>
+        </li>
+        <li class="nav-item">
+          <a href="index-cacher.html" class="nav-link">Cashing</a>
+        </li>
+      </ul>
+      <button id="menu-open-button" class="fas fa-bars"></button>
+    </nav>
+  </header>
+
+  <section class="booking" id="booking">
+
+    <h1 class="heading">book <span>your table</span></h1>
+
+    <div class="row">
+
+      <form id="bookingForm">
+        <h3>Reservation Details</h3>
+
+        <div class="inputBox">
+          <span class="fas fa-user"></span>
+          <input type="text" id="userName" placeholder="Full Name" required>
+        </div>
+
+        <div class="inputBox">
+          <span class="fas fa-phone"></span>
+          <input type="tel" id="userPhone" placeholder="Phone Number" required>
+        </div>
+
+        <div class="inputBox">
+          <span class="fas fa-users"></span>
+          <input type="number" id="guestCount" placeholder="Number of Guests" min="1" required>
+        </div>
+
+        <div class="inputBox">
+          <span class="fas fa-calendar-alt"></span>
+          <input type="date" id="bookingDate" required>
+        </div>
+
+        <div class="inputBox">
+          <span class="fas fa-clock"></span>
+          <input type="time" id="bookingTime" required>
+        </div>
+
+        <button type="submit" class="btn">Confirm Booking Now </button>
+      </form>
+
+      <div class="booking-info">
+        <h3>Useful Information</h3>
+        <p>Our daily working hours are from 8:00 AM to 12:00 AM midnight.</p>
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Address: Downtown - Next to the Food Court</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <span>Support: support@coffee.com</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-mug-hot"></i>
+          <span>Reservations are held for a maximum of 20 minutes from the scheduled time.</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <script src="js/booking.js"></script>
+  <script src="js/script-home.js"></script>
+</body>
+
+</html>

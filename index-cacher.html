@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Professional Gallery</title>
+  <link rel="stylesheet" href="styles/test-cacher.css">
+  <link rel="stylesheet" href="styles/style-home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="box">
+    <h3>Enter Your Name</h3>
+    <form>
+      <label>User Name :</label>
+      <input type="text" placeholder="Enter your username">
+
+      <label>Your ID Card :</label>
+      <input type="text" placeholder="Enter ID Card number">
+
+      <label>Password :</label>
+      <input type="password" placeholder="Your password">
+    </form>
+    <button type="submit" class="btn" onclick="openpopup()">Enroll</button>
+
+
+    <div class="popup" id="popup">
+      <img src="assets/tick.png">
+      <h2>THANK YOU!</h2>
+      <P>You Will Receive Your Order in A few Minutes</P>
+      <button type="button" style="border: 1px solid #c0392b;" onclick="closepopup()"> OK </button>
+    </div>
+  </div>
+  <script src="js/script-cacher.js"></script>
+  <script src="js/script-home.js"></script>
+</body>
+
+</html>
